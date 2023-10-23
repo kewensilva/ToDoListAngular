@@ -1,0 +1,25 @@
+<div class="root">
+ <div class="navbar-background-dark">
+  <div class="navbar-logo">
+   <div class="navbar-item">
+   </div>
+  </div>
+ </div>
+ <div class="card">
+  <fieldset class="card-wrapper">
+   <legend class="card-name"> Quadro de Tarefas</legend>
+   <div class="card-columns" cdkDropListGroup>
+    <fieldset class="card-column" *ngFor="let column of card.columns">
+     <p class="column-title">
+      {{column.name}}
+     </p>
+     <div class="tasks-container" cdkDropList [cdkDropListData]="column.tasks" (cdkDropListDropped)="drop($event)">
+      <div class="task" *ngFor="let item of column.tasks" cdkDrag>
+       {{item}}
+      </div>
+     </div>
+    </fieldset>
+   </div>
+  </fieldset>
+ </div>
+</div>
